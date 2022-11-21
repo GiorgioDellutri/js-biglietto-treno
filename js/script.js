@@ -8,14 +8,14 @@
 
 const chilometri=  prompt('Ciao! Quanti chilometri vuoi percorrere?');
 if ((chilometri >0)){
-    const eta= parseInt(prompt('Quanti anni hai?'));
+    const anni= parseInt(prompt('Inserisci la tua età?'));
     let prezzo = 0.21 * chilometri;
     
-    if ((eta>0)){
-        if (eta < 18) {
+    if ((anni>0)){
+        if (anni < 18) {
             let scontoVenti = prezzo *20 / 100;
             document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: '+scontoVenti.toFixed(2) + '&euro;';
-        } else if (eta > 65) {
+        } else if (anni > 65) {
             let scontoQuaranta = prezzo *40 / 100;
             document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: ' +scontoQuaranta.toFixed(2) + '&euro;';
         } else{
@@ -23,11 +23,11 @@ if ((chilometri >0)){
         }
     } else{
         console.error(' Attenzione! Devi inseire un numero per il calcolo del prezzo');
-        document.getElementById('prezzo').innerHTML = 'Attenzione! Devi inseire un chilometraggio / eta espresso in cifre per il calcolo del prezzo';
+        document.getElementById('prezzo').innerHTML = 'Attenzione! Devi inseire un chilometraggio ed un\'età espressi in cifre per il calcolo del prezzo';
     }  
 } else{
         console.error(' Attenzione! Devi inseire un numero per il calcolo del prezzo');
-        document.getElementById('prezzo').innerHTML = 'Attenzione! Devi inseire un chilometraggio / eta espresso in cifre per il calcolo del prezzo';
+        document.getElementById('prezzo').innerHTML = 'Attenzione! Devi inseire un chilometraggio ed un\'età espressi in cifre per il calcolo del prezzo';
     }    
 
 
