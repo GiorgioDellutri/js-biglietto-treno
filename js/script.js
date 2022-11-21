@@ -6,17 +6,30 @@
 //    - va applicato uno sconto del 40% per gli over 65.
 // L'output del prezzo finale va emesso (presentato all'utente) in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
 
-const chilometri= prompt('Ciao! Quanti chilometri vuoi percorrere?')
-const eta= prompt('Quanti anni hai?')
-
-let prezzo = 0.21 * chilometri;
-
-if (eta < 18) {
-    let scontoVenti = prezzo *20 / 100;
-    document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: '+scontoVenti;
-} else if (eta > 65) {
-    let scontoQuaranta = prezzo *40 / 100;
-    document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: ' +scontoQuaranta;
+const chilometri=  prompt('Ciao! Quanti chilometri vuoi percorrere?');
+if ((chilometri >0)){
+    const eta= parseInt(prompt('Quanti anni hai?'));
+    let prezzo = 0.21 * chilometri;
+    
+    if ((eta>0)){
+        if (eta < 18) {
+            let scontoVenti = prezzo *20 / 100;
+            document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: '+scontoVenti.toFixed(2) + '&euro;';
+        } else if (eta > 65) {
+            let scontoQuaranta = prezzo *40 / 100;
+            document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: ' +scontoQuaranta.toFixed(2) + '&euro;';
+        } else{
+            document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: ' +prezzo.toFixed(2) + '&euro;';
+        }
+    } else{
+        console.error(' Attenzione! Devi inseire un numero per il calcolo del prezzo');
+        document.getElementById('prezzo').innerHTML = 'Attenzione! Devi inseire un chilometraggio / eta espresso in cifre per il calcolo del prezzo';
+    }  
 } else{
-    document.getElementById('prezzo').innerHTML = 'Il costo del biglietto è: ' +prezzo;
-}
+        console.error(' Attenzione! Devi inseire un numero per il calcolo del prezzo');
+        document.getElementById('prezzo').innerHTML = 'Attenzione! Devi inseire un chilometraggio / eta espresso in cifre per il calcolo del prezzo';
+    }    
+
+
+
+
